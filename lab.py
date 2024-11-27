@@ -31,16 +31,22 @@ def main():
     except:
         raise Exception("No questionnaire available!")
 
-    scores_in = WebDriverWait(driver, 10).until(
+    score_ins = WebDriverWait(driver, 10).until(
         EC.presence_of_all_elements_located((By.XPATH, "//input[@value='4']"))
     )
 
-    for score in scores_in:
-        score.click()
+    for score_in in score_ins:
+        score_in.click()
 
     WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.XPATH, "//button[contains(text(), 'Save')]"))
     ).click()
+
+    WebDriverWait(driver, 10).until(
+        EC.title_contains('Praktikum')
+    )
+
+    print("Finished.")
 
 if __name__ == '__main__':
     try:
