@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+test/
+config.json
+main.py
